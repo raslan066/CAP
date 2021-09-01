@@ -1,0 +1,53 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        body {
+            margin:0;
+            padding-top: 100px;
+            /*padding: 0 0 40px 40px; !* zero padding except 40 pixels on bottom *!*/
+        }
+        .custom {
+            margin-top: 50px;
+        }
+    </style>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf - Bootstrap WebJars</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col">
+            <body>
+            <div>
+                <h1 class="display-4"><b>Welcome to the Stringinator 3000</b> </h1>
+                <p><i><b> for all of your string manipulation needs</b></i></p>
+            </div>
+
+            <table class="table custom">
+                <thead>
+                <tr>
+                    <th scope="col"><h3>APIs</h3></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="data, iterstat: ${apis}">
+                    <td th:text="${data}" th:id="|td${iterstat.index}|"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            </body>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
